@@ -6,7 +6,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "husky install",
+    "lintfix": "eslint --fix --ext \".ts,.tsx,.vue\" --ignore-path .gitignore ."
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
@@ -16,7 +18,15 @@
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
     "nuxt": "^3.5.0",
     "prettier": "^2.8.8"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue}": [
+      "prettier --write",
+      "pnpm lintfix"
+    ]
   }
 }
