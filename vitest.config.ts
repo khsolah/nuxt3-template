@@ -16,4 +16,12 @@ export default defineConfig({
       provider: 'c8',
     },
   },
+  resolve: {
+    alias: [
+      {
+        find: '~',
+        replacement: '.',
+      },
+    ],
+  },
 });
