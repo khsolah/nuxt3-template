@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "lintfix": "eslint --fix --ext \".ts,.tsx,.vue\" --ignore-path .gitignore .",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "start": "nuxt start"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
