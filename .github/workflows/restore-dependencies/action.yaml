@@ -1,0 +1,23 @@
+name: restore dependencies
+inputs:
+  pnpm-store-path:
+    description: 'pnpm store path'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache/restore@v3
+      with:
+        path: ${{ inputs.pnpm-store-path }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+    - name: use node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    - name: install dependencies
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: true
